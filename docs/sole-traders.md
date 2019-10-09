@@ -28,13 +28,13 @@ soletrader_id | string(uuid) | read-only | Unique identifier for the object. To 
 owner | string(uuid) | **required** | Unique identifier of the user associated to the sole trader.
 unique_id | string | **required** | Unique identifier of the sole trader
 vat_number | string | optional | VAT number of the sole trader if available.
-|
+|||
 trading_name | string | **required** | Company's name
 trading_address | string |  | Company's full address
 trading_address_city | string |  | Company's city
 trading_address_postcode | string |  | Company's postcode
 trading_address_country | string | |  Company's country
-|
+|||
 proprietor_name | string | **required** | Proprietor's name
 proprietor_address_line1 | string |  | Proprietor's address
 proprietor_address_line2 | string |  | Proprietor's address

@@ -69,12 +69,12 @@ attribute | type | flags | description
 id | string(uuid) | read-only | Unique identifier for the object.
 created | string(datetime) | read-only | created time
 modified | string(datetime) | read-only | last modified time
-||
+|||
 unique_id | string | **required** | Unique identifier of the organisation on your platform.
-||
+|||
 registered | string(datetime) | **required**  | When the organisation registered on your platform (ISO 8601)
 plan_type | string | optional | Type of plan (free, paying, premium)
-||
+|||
 company | string(uuid) | optional | Hokodo unique identifier of the company
 company_name | string | optional | Company name
 company_regnum | string | optional | Company registration number

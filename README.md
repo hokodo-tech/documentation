@@ -3,7 +3,7 @@ This repository contains extra API documentation, recipes and code snippets that
 
 ## Contents
 
-- [Organisations](docs/organisation.md): new API concepts for organisation-enabled platforms
+- [Organisations](docs/organisations.md): new API concepts for organisation-enabled platforms
 - [Collections and claims](docs/collections.md)
 - [Company matching](docs/company-matching.md)
 - [Sole traders](docs/sole-traders.md)

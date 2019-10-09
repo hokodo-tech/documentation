@@ -38,18 +38,18 @@ attribute | type | flags | description
 --------- | ---- | ----- | ------------
 id | string(uuid) | read-only | Unique identifier for the object.
 policy | string(uuid) | **required** | Policy the collection is attached to.
-|
+|||
 sent | string(datetime) | read-only | Timestamp at which the collection request has been sent (set by PUT .../:id/send)
 created | string(datetime) | read-only | Created time.
 modified | string(datetime) | read-only | Last modified time.
-|
+|||
 confirm_correct | boolean |  | Customer has confirmed the information is correct
 collections_terms_acceptance | boolean |  | Customer has accepted the collections terms and conditions.
 collect_fees_from_debtor | boolean |  | Should the collection fees be collected from debtor?
-|
+|||
 confirmed_correct | string(datetime) | read-only | Timestamp of `confirm_correct` true
 accepted_collections_terms | string(datetime) |read-only  | Timestamp of `collections_terms_acceptance` true
-|
+|||
 creditor_contact_name | string |  | Creditor contact name (defaults to the user's name)
 creditor_contact_email | string(email) |  | Creditor contact email address (defaults to the user's email address)
 creditor_contact_phone | string |  | Creditor contact phone number (defaults to the user's phone if available)
@@ -60,13 +60,13 @@ debtor_country | string |  | Debtor country (ISO 3166-1 2 letter code)
 debtor_contact_name | string |  | Debtor contact name
 debtor_contact_email | string(email) |  | Debtor contact email address
 debtor_contact_phone | string |  | Debtor contact phone number
-|
+|||
 bank_account_name | string |  | Name on the bank account
 bank_account_sortcode | string |  | Bank account sortcode
 bank_account_number | string |  | Bank account number
 bank_account_email | string(email) |  | Email address of person checking the bank account
-|
-||||Optional fields
+|||
+|||Optional fields
 debtor_website | string |  | Debtor website
 actions_taken | string |  | Actions already taken by the creditor
 partial_payment | string(decimal) |  | Partial payment received (defaults to 0)
@@ -117,7 +117,6 @@ attribute | type | description
 --------- | ---- | ------------
 id | string(uuid) | Unique identifier for the object. (read-only)
 policy | string(uuid) | Policy the collection document is attached to.
-||
 type | string | Type of document. Possible values are: `invoice`, `statement` (statement of account), `proof_order` (proof of order, contract of sale), `proof_delivery` (proof and terms of delivery), `shipping` (shipping documents), `correspondence` (recent correspondence), `other` (other types of documents)
 description | string | Description of the (type of) document
 file | string(uri) | Link to the document (the link is not a permanent link, but expires)

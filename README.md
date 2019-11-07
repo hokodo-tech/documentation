@@ -7,6 +7,7 @@ This repository contains extra API documentation, recipes and code snippets that
 - [Collections and claims](docs/collections.md)
 - [Company matching](docs/company-matching.md)
 - [Sole traders](docs/sole-traders.md)
+- [Webhooks](docs/webhooks.md)
 
 ## Reference links
 - Partner portal (sandbox) : https://sandbox.hokodo.co/

@@ -29,7 +29,17 @@ What you need to build on your side is an endpoint ready to receive our requests
 4. Our API expects a `2xx` status code from your endpoint for a succesful response.
 4. Our API will retry up to 3 times if it can't connect sucessfully to your endpoint, with an exponential backoff between each request. It will wait 0, 2, and 4 seconds respectively before the 1st, 2nd and 3rd retry.
 
+### Events of interest
+If a quote has been offered and the customer has purchased an insurance policy, both the `quote` and `policy` field in the transaction JSON will be filled and expanded. What will probably be of most interest to you then is looking at the `quote` and `policy` fields in the webhook request body.
+- `"policy": null, "quote": null` means no quote and no policy,
+- `"policy": null, "quote": {...}` means there is a quote and no policy has been purchased, you can check `"status"` in the quote sub-object to know if it is offered, declined or expired.
+- `"policy": {...}, "quote": {...}` means a policy has been purchased.
+
 ## Sample content
+
+### Active insurance policy
+- `policy` is filled
+- `quote.status` is `"accepted"`
 
 ```json
 {
@@ -123,6 +133,132 @@ What you need to build on your side is an endpoint ready to receive our requests
         "insured_pc_gross": null,
         "referral_url": null
     },
+    "estimated_quote_price": null
+}
+```
+
+### Quote, but no insurance policy purchased
+
+- `policy` is `null`
+- `quote.status` is `"offered"`
+
+```json
+{
+    "url": "https://api-sandbox.hokodo.co/v1/transactions/trns-5DpFHDgVpv87wJFa9dXyvW",
+    "id": "trns-5DpFHDgVpv87wJFa9dXyvW",
+    "owner": "user-MzPbafH78Byb65U7PshRpF",
+    "debtor": "co-Tv5pezgn7VAYEbLXfexbS2",
+    "debtor_name": "Test debtor",
+    "debtor_country": "GB",
+    "debtor_regnum": "",
+    "debtor_address": "",
+    "creditor": "co-WUaZHXbdsbAvxpYbBPhYh8",
+    "creditor_name": "Test creditor",
+    "creditor_country": "GB",
+    "creditor_regnum": "",
+    "creditor_address": "",
+    "status": "pending",
+    "pay_method": "unknown",
+    "net_amount": "1234.00",
+    "gross_amount": null,
+    "currency": "GBP",
+    "issue_date": "2019-10-16",
+    "due_date": "2019-12-16",
+    "paid_date": null,
+    "number": "",
+    "items": [],
+    "source": null,
+    "unique_id": "",
+    "policy": null,
+    "quote": {
+        "url": "https://api-sandbox.hokodo.co/v1/quotes/quo-jaetYa8f9TmFDBYsb33KAT",
+        "id": "quo-jaetYa8f9TmFDBYsb33KAT",
+        "client": {
+            "url": "https://api-sandbox.hokodo.co/v1/companies/co-WUaZHXbdsbAvxpYbBPhYh8",
+            "id": "co-WUaZHXbdsbAvxpYbBPhYh8",
+            "country": "GB",
+            "name": "Test creditor Limited",
+            "address": "123 Main Street, City, County, Region, Postcode",
+            "city": "Test city",
+            "postcode": "Test postcode",
+            "legal_form": "Private limited with share capital",
+            "sectors": [
+                {
+                    "system": "SIC2007",
+                    "code": "47710"
+                }
+            ],
+            "creation_date": "1995-07-12",
+            "identifiers": [
+                {
+                    "idtype": "reg_number",
+                    "country": "GB",
+                    "value": "01234567"
+                }
+            ],
+            "email": "",
+            "phone": "",
+            "status": "Active",
+            "accounts_type": "Total exemption full"
+        },
+        "status": "offered",
+        "proposed_quote": null,
+        "rejection_reason": null,
+        "created": "2019-11-07T11:17:38.166454Z",
+        "valid_until": "2019-11-07T13:17:38.158274Z",
+        "price": {
+            "currency": "GBP",
+            "total_price": "20.45",
+            "premium": "18.26",
+            "ipt": "2.19"
+        },
+        "insured": {
+            "currency": "GBP",
+            "insured_amount": "1110.60"
+        },
+        "insured_pc_net": 90.0,
+        "insured_pc_gross": null,
+        "referral_url": null
+    },
+    "estimated_quote_price": null
+}
+```
+
+
+### No valid quote, nor insurance policy
+
+- `policy` is `null`
+- `quote.status` is `null`
+
+```json
+{
+    "url": "https://api-sandbox.hokodo.co/v1/transactions/trns-5DpFHDgVpv87wJFa9dXyvW",
+    "id": "trns-5DpFHDgVpv87wJFa9dXyvW",
+    "owner": "user-MzPbafH78Byb65U7PshRpF",
+    "debtor": "co-Tv5pezgn7VAYEbLXfexbS2",
+    "debtor_name": "Test debtor",
+    "debtor_country": "GB",
+    "debtor_regnum": "",
+    "debtor_address": "",
+    "creditor": "co-WUaZHXbdsbAvxpYbBPhYh8",
+    "creditor_name": "Test creditor",
+    "creditor_country": "GB",
+    "creditor_regnum": "",
+    "creditor_address": "",
+    "status": "pending",
+    "pay_method": "unknown",
+    "net_amount": "1234.00",
+    "gross_amount": null,
+    "currency": "GBP",
+    "issue_date": "2019-10-16",
+    "due_date": "2019-12-16",
+    "paid_date": null,
+    "number": "",
+    "items": [],
+    "source": null,
+    "unique_id": "",
+    "policy": null,
+    "quote": null,
     "estimated_quote_price": null
 }
 ```

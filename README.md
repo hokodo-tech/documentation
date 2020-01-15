@@ -8,6 +8,7 @@ This repository contains extra API documentation, recipes and code snippets that
 - [Company matching](docs/company-matching.md)
 - [Sole traders](docs/sole-traders.md)
 - [Webhooks](docs/webhooks.md)
+- [FR: SIRENs available in Sandbox](docs/fr-sandbox-regnumber.txt)
 
 ## Reference links
 - Partner portal (sandbox) : https://sandbox.hokodo.co/

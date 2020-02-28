@@ -10,6 +10,7 @@ This repository contains extra API documentation, recipes and code snippets that
 - [Webhooks](docs/webhooks.md)
 - [FR: SIRENs available in Sandbox](docs/fr-sandbox-regnumber.txt)
 - [Draft transactions](docs/draft-transactions.md)
+- [Scheduled payments](docs/scheduled-payments.md)
 
 ## Reference links
 - Partner portal (sandbox) : https://sandbox.hokodo.co/

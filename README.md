@@ -11,6 +11,7 @@ This repository contains extra API documentation, recipes and code snippets that
 - [FR: SIRENs available in Sandbox](docs/fr-sandbox-regnumber.txt)
 - [Draft transactions](docs/draft-transactions.md)
 - [Scheduled payments](docs/scheduled-payments.md)
+- [Partial payments](docs/partial-payments.md)
 
 ## Reference links
 - Partner portal (sandbox) : https://sandbox.hokodo.co/
